@@ -3,15 +3,22 @@
 ![GitHub Action Status](https://github.com/elnappo/bro-log-parser/workflows/Python%20package/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/680163011be7d7903c0f/maintainability)](https://codeclimate.com/github/elnappo/bro-log-parser/maintainability)
 
-Simple logfile parser for [Bro IDS](https://www.bro.org/). This library parses and transforms entries 
+Simple logfile parser for [Bro IDS](https://www.bro.org/). This library parses and transforms entries
 in a logfile created by the [ASCII Writer](https://www.bro.org/sphinx/frameworks/logging.html#ascii-writer)
 into a dynamically generated namedtuple. Fields are converted into native Python data types.
 
+Additionally, it provides a command-line tool named `catz` that makes it easier to work with Zeek log files manually.
+
 ## Requirements
 * python3
- 
+
 ## Install
     python3 setup.py install
+
+## Usage of the CLI
+    ./catz conn.log
+
+![](https://user-images.githubusercontent.com/5559994/102645090-35ca8f80-4162-11eb-9be6-ec2a2eec06c1.png)
 
 ## Tests
     pytest
@@ -28,7 +35,7 @@ into a dynamically generated namedtuple. Fields are converted into native Python
 ...
 ConnEntry(
     ts=datetime.datetime(2015, 1, 23, 0, 49, 13, 396481),
-    uid='CjPbcf1SkE86OWWTra', 
+    uid='CjPbcf1SkE86OWWTra',
     id_orig_h=IPv4Address('192.168.1.100'),
     id_orig_p=137,
     id_resp_h=IPv4Address('192.168.1.255'),
