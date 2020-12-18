@@ -32,13 +32,17 @@ for entry in entries:
         formatted_entry.append(formatted_field)
         if len(formatted_field) > field_lengths[field]:
             field_lengths[field] = len(formatted_field)
-    formatted_entries.append(formatted_entry)
+        formatted_entries.append(formatted_entry)
+for i, field in enumerate(fields):
+    if field_lengths[field] > 80:
+        field_lengths[field] = 80
+        for entry in formatted_entries:
+            if len(entry[i]) > field_lengths[field]:
+                entry[i] = entry[i][:field_lengths[field] - 1] + "…"
 
 row_format = "{:>" + "{}".format(len("{}".format(len(formatted_entries)))) + "} | "
 separator_line = []
 for field in fields:
-    if field_lengths[field] > 50:
-        field_lengths[field] = 50
     row_format += "{:<" + "{}".format(field_lengths[field]) + "}  "
     separator_line.append("-" * field_lengths[field])
 print(row_format.format("", *fields))
