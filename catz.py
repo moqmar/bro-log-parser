@@ -25,7 +25,10 @@ for field in fields:
 for entry in entries:
     formatted_entry = []
     for field in fields:
-        formatted_field = "{}".format(getattr(entry, field))
+        formatted_field = ""
+        unformatted_field = getattr(entry, field)
+        if unformatted_field is not None:
+            formatted_field = "{}".format(unformatted_field)
         formatted_entry.append(formatted_field)
         if len(formatted_field) > field_lengths[field]:
             field_lengths[field] = len(formatted_field)
