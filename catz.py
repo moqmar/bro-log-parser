@@ -34,7 +34,7 @@ for entry in entries:
             field_lengths[field] = len(formatted_field)
     formatted_entries.append(formatted_entry)
 
-row_format = "{:>" + "{}".format(len("{}".format(len(entries)))) + "} | "
+row_format = "{:>" + "{}".format(len("{}".format(len(formatted_entries)))) + "} | "
 separator_line = []
 for field in fields:
     if field_lengths[field] > 50:
