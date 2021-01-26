@@ -32,7 +32,7 @@ for entry in entries:
         formatted_entry.append(formatted_field)
         if len(formatted_field) > field_lengths[field]:
             field_lengths[field] = len(formatted_field)
-        formatted_entries.append(formatted_entry)
+    formatted_entries.append(formatted_entry)
 for i, field in enumerate(fields):
     if field_lengths[field] > 80:
         field_lengths[field] = 80
